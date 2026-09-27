@@ -400,10 +400,11 @@ main() {
     tmux set-window-option -g window-style "fg=${text},bg=${bg_pane}"
   fi
 
-  tmux set-window-option -g window-status-format "#[fg=${text}]#[bg=${window_bar_bg}] #I #W${flags}"
+  tmux set-window-option -g window-status-format "#{?window_bell_flag,#[fg=${bg_bar} bg=${alert}],#[fg=${text} bg=${window_bar_bg}]} #I #W${flags}"
   tmux set-window-option -g window-status-activity-style "bold"
   tmux set-window-option -g window-status-bell-style "bold"
 }
+
 
 # run main function
 main
